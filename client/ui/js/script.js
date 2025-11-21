@@ -1763,28 +1763,25 @@ function tryPlayNextTone() {
 
     const nextTone = tonesQueue.shift();
     if (!nextTone) {
-        isPaging = false; // ✅ Done with queue
+        isPaging = false;
         return;
     }
 
     playToneSet(nextTone.a, nextTone.b, () => {
-        tryPlayNextTone(); // Continue with next in queue
+        tryPlayNextTone();
     });
 }
 
 function playToneSet(freqA, freqB, onComplete) {
     isTonePlaying = true;
     console.log(`Playing Tone A=${freqA}, B=${freqB}`);
-
-    // Simulate 4s tone duration
+    
     setTimeout(() => {
         isTonePlaying = false;
         onComplete?.();
     }, 4000);
 }
 
-
-// Custom PlaySoundEffect With Alerting for QC2 Tones
 function playSoundEffect(audioPath, onComplete) {
     const audio = new Audio(audioPath);
     audio.play().then(() => {
@@ -1793,7 +1790,7 @@ function playSoundEffect(audioPath, onComplete) {
         };
     }).catch((err) => {
         console.error('Error playing sound:', err);
-        onComplete?.(); // Fallback
+        onComplete?.(); 
     });
 }
 
