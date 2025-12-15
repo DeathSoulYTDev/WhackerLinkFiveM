@@ -1562,7 +1562,7 @@ function detectQC2Pair() {
 
                 if (isMatchA && isMatchB) {
                     console.log(`QC2 Match: A=${pair.a}, B=${pair.b}`);
-                    minitorStandard();  // ✅ Start paging workflow
+                    minitorStandard();  // Start paging workflow
                     tonesQueue.push({ a: pair.a, b: pair.b });
                     break;
                 }
